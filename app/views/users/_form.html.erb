@@ -12,28 +12,18 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
+    <%= form.label :名前（全角） %>
     <%= form.text_field :name %>
   </div>
 
   <div class="field">
-    <%= form.label :first_name %>
-    <%= form.text_field :first_name %>
+    <%= form.label :フリカナ（全角カタカナ） %>
+    <%= form.text_field :name_reading %>
   </div>
 
   <div class="field">
-    <%= form.label :last_name %>
-    <%= form.text_field :last_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :first_name_reading %>
-    <%= form.text_field :first_name_reading %>
-  </div>
-
-  <div class="field">
-    <%= form.label :last_name_readig %>
-    <%= form.text_field :last_name_readig %>
+    <%= form.label :ニックネーム（半角英数） %>
+    <%= form.text_field :nickname %>
   </div>
 
   <div class="actions">
