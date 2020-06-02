@@ -1,28 +1,18 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>名前:</strong>
   <%= @user.name %>
 </p>
 
 <p>
-  <strong>First name:</strong>
-  <%= @user.first_name %>
+  <strong>フリガナ</strong>
+  <%= @user.name_reading %>
 </p>
 
 <p>
-  <strong>Last name:</strong>
-  <%= @user.last_name %>
-</p>
-
-<p>
-  <strong>First name reading:</strong>
-  <%= @user.first_name_reading %>
-</p>
-
-<p>
-  <strong>Last name readig:</strong>
-  <%= @user.last_name_readig %>
+  <strong>ニックネーム:</strong>
+  <%= @user.nickname %>
 </p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
