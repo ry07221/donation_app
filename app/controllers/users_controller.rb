@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:donate]
+  # before_action :set_user, only: [:donate]
 
   # GET /users
   # GET /users.json
@@ -37,11 +37,11 @@ class UsersController < ApplicationController
 
   def create
     @donation = UserDonation.new(donation_params)
-    if @donation.save
-      redirect_to root_path
-    else
-      redirect_to donate_user_path
-    end
+    # if @donation.save
+    #   redirect_to root_path
+    # else
+    #   redirect_to donate_user_path
+    # end
   end
 
   private
