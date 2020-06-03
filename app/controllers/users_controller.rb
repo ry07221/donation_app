@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy, :donate]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :donate, :address]
 
   # GET /users
   # GET /users.json
@@ -37,15 +37,20 @@ class UsersController < ApplicationController
   end
   
   def confirm_address
+    @user = User.find(params[:id])
     @address = Address.new(address_params)
-    if @address.save
-      redirect_to root_path
-    else
-      redirect_to address_user_path(@user)
-    end
+    # if @address.save
+    #   redirect_to confirm_address_user_path
+    # else
+    #   redirect_to address_user_path(@user)
+    # end
   end
 
   def donate
+    # @donate = 
+  end
+
+  def confirm_donate
     
   end
 
@@ -83,7 +88,7 @@ class UsersController < ApplicationController
     end
 
     def address_params
-      params.require(:address).permit(:postal_code, :prefecture, :city, :house_number, :building_name)
+      params.require(:address).permit(:postal_code, :prefecture, :city, :house_number, :building_name).merge(user_id: @user.id)
     end
 
 end

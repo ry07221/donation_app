@@ -1,8 +1,8 @@
-= form_with(model: @address, url: confirm_address_users_path, local: true) do |form|
+= form_with(model: @address, url: confirm_address_user_path, local: true) do |form|
   - if @address.errors.any?
     #error_explanation
       %h2
-        = pluralize(address.errors.count, "error")
+        = pluralize(@address.errors.count, "error")
         prohibited this user from being saved:
       %ul
         - address.errors.full_messages.each do |message|
