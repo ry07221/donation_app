@@ -54,7 +54,7 @@ class UsersController < ApplicationController
     # end
 
     def donation_params
-      params.require(:address).permit(:name, :name_reading, :nickname, :postal_code, :prefecture, :city, :house_number, :building_name, :price).merge(user_id: @user.id)
+      params.permit(:name, :name_reading, :nickname, :postal_code, :prefecture, :city, :house_number, :building_name, :price)
     end
 
     # def donation_params
