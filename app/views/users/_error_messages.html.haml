@@ -1,5 +1,5 @@
-- if model.errors.any?
+- if donation.errors.any?
   .error-alert
     %ul
-      - model.errors.full_messages.each do |message|
+      - donation.errors.full_messages.each do |message|
         %li.error-message= message
