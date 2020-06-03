@@ -1,0 +1,31 @@
+= form_with(model: @address, url: confirm_address_user_path, local: true) do |form|
+  - if @address.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@address.errors.count, "error")
+        prohibited this user from being saved:
+      %ul
+        - address.errors.full_messages.each do |message|
+          %li= message
+  .field
+    = form.label :郵便番号（ハイフンを含む）
+    = form.text_field :postal_code
+
+  .field
+    = form.label :都道府県
+    = form.collection_select :prefecture_id, Prefecture.all, :id, :name, {include_blank: "---"}, {required: true} 
+
+  .field
+    = form.label :市町村（任意）
+    = form.text_field :city
+
+  .field
+    = form.label :番地（任意）
+    = form.text_field :house_number
+
+  .field
+    = form.label :建物名（任意）
+    = form.text_field :city
+
+  .actions
+    = form.submit "登録する"
