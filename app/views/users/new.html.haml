@@ -35,8 +35,9 @@
 
   %h1 寄付金
   .field
-    = form.label :price, "いくら寄付しますか？"
+    = form.label :price, "いくら寄付しますか？（半角数字）"
     = form.text_field :price
+    円
 
   .actions
     = form.submit "寄付する"
