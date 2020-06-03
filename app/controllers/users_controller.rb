@@ -54,7 +54,7 @@ class UsersController < ApplicationController
     # end
 
     def donation_params
-      params.permit(:name, :name_reading, :nickname, :postal_code, :prefecture, :city, :house_number, :building_name, :price)
+      params.require(:user_donation).permit(:name, :name_reading, :nickname, :postal_code, :prefecture, :city, :house_number, :building_name, :price)
     end
 
     # def donation_params
