@@ -8,3 +8,4 @@ class User < ApplicationRecord
   validates :nickname, presence: true, format: { with: /\A[a-z0-9]+\z/i, message: "は半角英数で入力してください。"}
          
 end
+
