@@ -6,11 +6,11 @@ class UsersController < ApplicationController
 
   def create
     @donation = UserDonation.new(donation_params)
-    if @donation.save
-      redirect_to users_path
-    else
-      render "new"
-    end
+    # if @donation.save
+    #   redirect_to users_path
+    # else
+    #   render "new"
+    # end
   end
 
   private
