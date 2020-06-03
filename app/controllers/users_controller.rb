@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :donate]
 
   # GET /users
   # GET /users.json
@@ -25,33 +25,29 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-
     if @user.save
-    # respond_to do |format|
-        # format.html { redirect_to @user, notice: 'User was successfully created.' }
-        # format.json { render :show, status: :created, location: @user }
-
       redirect_to address_user_path(@user)
-
-      # else
-      #   format.html { render :new }
-      #   format.json { render json: @user.errors, status: :unprocessable_entity }
-      # end
+    else
+      redirect_to new_user_path
     end
   end
 
   def address
-    # binding.pry
     @address = Address.new
-
+  end
+  
+  def confirm_address
+    @address = Address.new(address_params)
     if @address.save
       redirect_to root_path
     else
-      redirect_to acction: :address
+      redirect_to address_user_path(@user)
     end
-
   end
 
+  def donate
+    
+  end
 
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
@@ -78,13 +74,16 @@ class UsersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def user_params
       params.require(:user).permit(:name, :name_reading, :nickname)
     end
+
+    def address_params
+      params.require(:address).permit(:postal_code, :prefecture, :city, :house_number, :building_name)
+    end
+
 end

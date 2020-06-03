@@ -1,0 +1,20 @@
+= form_with(model: user, url:users_path, method: :get, local: true) do |form|
+  - if user.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(user.errors.count, "error")
+        prohibited this user from being saved:
+      %ul
+        - user.errors.full_messages.each do |message|
+          %li= message
+  .field
+    = form.label :名前（全角）
+    = form.text_field :name
+  .field
+    = form.label :フリカナ（全角カタカナ）
+    = form.text_field :name_reading
+  .field
+    = form.label :ニックネーム（半角英数）
+    = form.text_field :nickname
+  .actions
+    = form.submit "次へ進む"
