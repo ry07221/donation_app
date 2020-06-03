@@ -1,0 +1,21 @@
+= render './error_messages', model: @donation
+
+.field
+  = form.label :postal_code, "郵便番号（ハイフンを含む）"
+  = form.text_field :postal_code
+
+.field
+  = form.label :prefecture, "都道府県"
+  = form.collection_select :prefecture, Prefecture.all, :id, :name, {include_blank: "---"}, {required: true} 
+
+.field
+  = form.label :city, "市町村（任意）"
+  = form.text_field :city
+
+.field
+  = form.label :house_number, "番地（任意）"
+  = form.text_field :house_number
+
+.field
+  = form.label :city, "建物名（任意）"
+  = form.text_field :city

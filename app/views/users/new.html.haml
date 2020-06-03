@@ -1,3 +1,13 @@
-%h1 新規ユーザー
-= render 'form', user: @user
-= link_to 'Topページへ', users_path
+%h1 ユーザー名を登録
+
+= form_with(model: @donation, url: users_path, local: true) do |form|
+= render 'user'
+
+%h1 住所を登録
+= render 'address', donation: @donation
+
+%h1 寄付金
+= render 'donation', donation: @donation
+
+.actions
+  = form.submit "寄付する"
