@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   
-  resources :users, only: [:index, :new, :create]
+  resources :donations, only: [:index, :new, :create]
   
-  root "users#index"
+  root "donations#index"
   
 end
 
