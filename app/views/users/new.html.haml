@@ -1,5 +1,5 @@
 = form_with(model: @donation, url: users_path, local: true) do |form|
-  = render './error_messages', model: @donation
+  = render 'error_messages', donation: @donation
 
   %h1 ユーザー名を入力
   .field
