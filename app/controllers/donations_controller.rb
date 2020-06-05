@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class  DonationsController < ApplicationController
 
   def new
     @donation = UserDonation.new
