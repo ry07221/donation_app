@@ -1,4 +1,4 @@
-= form_with(model: @donation, url: users_path, local: true) do |form|
+= form_with(model: @donation, url: donations_path, local: true) do |form|
   = render 'error_messages', donation: @donation
 
   %h1 ユーザー名を入力
@@ -35,7 +35,7 @@
 
   %h1 寄付金
   .field
-    = form.label :price, "いくら寄付しますか？（半角数字）"
+    = form.label :price, "いくら寄付しますか？（1〜1000000円、半角）"
     = form.text_field :price
     円
 

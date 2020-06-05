@@ -9,7 +9,7 @@ class UserDonation
     validates :nickname, format: { with: /\A[a-z0-9]+\z/i, message: "は半角英数で入力してください。"}
     validates :postal_code, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, messgage: "は「-」も入力してください"}
     validates :prefecture
-    validates :price, format: {with: /\A[0-9]+\z/, message: "は半角数字で入力してください"}
+    validates :price, numericality: {greater_than_or_equal_to: 1, less_than_or_equal_to: 1000000, message: "は「1〜1000000円 且つ 半角」で入力してください"}
   end
  
   def save
